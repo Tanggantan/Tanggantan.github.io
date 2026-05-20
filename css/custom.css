@@ -1,0 +1,45 @@
+/* 视频背景 */
+#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* 让 Butterfly 各层透出视频:把不透明背景改成半透明,文字加深以保证可读 */
+:root {
+  --background: transparent;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --sidebar-bg: rgba(255, 255, 255, 0.75);
+}
+
+html[data-theme='dark'] {
+  --card-bg: rgba(0, 9, 32, 0.7);
+  --sidebar-bg: rgba(0, 9, 32, 0.7);
+}
+
+#web_bg,
+body {
+  background: transparent !important;
+}
+
+#page,
+#recent-posts > .recent-post-item,
+.layout > div:first-child:not(.recent-posts),
+#aside-content .card-widget {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#footer {
+  background: rgba(0, 0, 0, 0.45) !important;
+}
+
+#footer::before {
+  background: transparent !important;
+}
